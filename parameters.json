@@ -1,0 +1,113 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralus"
+        },
+        "networkInterfaceName": {
+            "value": "iischeckmarxvm40"
+        },
+        "networkSecurityGroupName": {
+            "value": "IISCheckMarxVM-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "default-allow-rdp",
+                    "properties": {
+                        "priority": 1000,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "checmMarxsubnet"
+        },
+        "virtualNetworkName": {
+            "value": "ehart7-01-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.1.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "IISCheckMarxVM-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "IISCheckMarxVM"
+        },
+        "virtualMachineRG": {
+            "value": "ehart7-01"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "IISCheckMarxVM_DataDisk_0",
+                    "storageAccountType": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "IISCheckMarxVM_DataDisk_0",
+                    "diskSizeGB": 80,
+                    "sku": "StandardSSD_LRS",
+                    "creationData": {
+                        "createOption": "empty"
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_A2m_v2"
+        },
+        "adminUsername": {
+            "value": "pedsAdmin"
+        },
+        "adminPassword": {
+            "value": "checkMarx177"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "syuqnhsglfmj"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/e480a2a1-a59c-4b77-aa21-ffcbc8243f5f/resourceGroups/ehart7-01/providers/Microsoft.Storage/storageAccounts/syuqnhsglfmj"
+        }
+    }
+}
